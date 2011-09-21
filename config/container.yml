@@ -1,0 +1,25 @@
+parameters:
+  twig.debug:    true
+  routes:        []
+  templatedir:   ~
+  templatecache: ~
+  conn:          ~
+  config:        ~
+
+services:
+  twig.loader:
+    class: Twig_Loader_Filesystem
+    arguments: [%templatedir%] 
+  twig: 
+    class: Twig_Environment
+    arguments: [@twig.loader, { cache: %templatecache%, debug: %twig.debug% }]
+  session: 
+    class: Fwk_Session
+    arguments: []
+  routematcher:
+    class: Fwk_RouteMatcher
+    arguments: [%routes%]
+  em:
+    class: \Doctrine\ORM\EntityManager
+    constructor: create
+    arguments: [%conn%, %config%]

@@ -1,0 +1,61 @@
+'/?':
+  controller: 'App_Controllers_EventController'
+  action:     'indexAction'
+  params:     [] 
+'/event/(\d+)':
+  controller: 'App_Controllers_EventController'
+  action:     'viewAction'
+  params:
+    id: 0
+'/event/(\d+)/delete':
+  controller: 'App_Controllers_EventController'
+  action:     'deleteAction'
+  params:
+    id: 0
+'/event/create':
+  controller: 'App_Controllers_EventController'
+  action:     'createAction'
+  params:     [] 
+'/event/(\d+)/create':
+  controller: 'App_Controllers_EventController'
+  action:     'createAction'
+  params:      
+   id: 0
+'/login':
+  controller: 'App_Controllers_AuthController'
+  action:     'loginAction'
+  params:     []
+'/logout':
+  controller: 'App_Controllers_AuthController'
+  action:     'logoutAction'
+  params:     []
+'/auth':
+  controller: 'App_Controllers_AuthController'
+  action:     'authAction'
+  params:     []
+'/members':
+  controller: 'App_Controllers_MemberController'
+  action:     'indexAction'
+  params:     []
+'/attend/(\d+)/(0|1)':
+  controller: 'App_Controllers_EventController'
+  action:     'attendAction'
+  params:     
+    id:     0
+    status: 0
+'/account':
+  controller: 'App_Controllers_AccountController'
+  action:     'indexAction'
+  params:     []
+'/account/remove':
+  controller: 'App_Controllers_AccountController'
+  action:     'removeAction'
+  params:     []
+'/admin/events':
+  controller: 'App_Controllers_AdminController'
+  action:     'eventsAction'
+  params:     []
+'/events/archive':
+  controller: 'App_Controllers_EventController'
+  action:     'archiveAction'
+  params:     []

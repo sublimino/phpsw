@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+	
+{% block content %}
+
+<h1>Events</h1>
+{% for event in events %}
+<div class="row">
+	<div class="span2">
+		<h3>{{ event.startDate.format('d/m/Y') }} {{ event.startTime.format('H:i') }}</h3>
+	</div>
+	<div class="span14">
+		<h3><a href="/event/{{ event.id }}">{{ event.title }}</a></h3>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}

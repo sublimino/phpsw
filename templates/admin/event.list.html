@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="span14">
+		<h1>Events</h1>
+	</div>
+	<div class="span2">
+		<a href="/event/create" class="btn primary">Add Event</a>
+	</div>
+</div>
+
+<table class="zebra-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Date</th>
+			<th>Published</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for event in events %}
+		<tr>
+			<td><a href="/event/{{ event.Id }}/create">{{ event.Title }}</a></td>
+			<td>{{ event.startDate.format('d/m/Y H:i:s') }}</td>
+			<td>{{ event.published }}</td>
+			<td><a href="/event/{{ event.id }}/delete">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

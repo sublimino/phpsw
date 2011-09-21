@@ -1,0 +1,14 @@
+{% if not debug %}
+<h1>An error occurred</h1>
+{% else %}
+<h1>{{ exception.getMessage }}</h1>
+<p>{{ class }}</p>
+<p>{{ exception.getTraceAsString }}</p>
+<table>
+	{% for trace in trace %} 
+	<tr>
+		<td>#{{ loop.index0 }}</td><td>{{ trace.file }}({{ trace.line }}): {{ trace.definition }}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endif %}

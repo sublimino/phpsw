@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+	<fieldset>
+		<legend>Event</legend>
+		<div class="clearfix {% if form.title.getErrors %}error{% endif %}">
+			<label for="title">Title</label>
+			<div class="input">
+				{{ form.title.render|raw }}
+				<span class="help-inline">{% for error in form.title.getErrors %}{{ error }}{% endfor %}</span>
+			</div>
+		</div>
+		<div class="clearfix {% if form.start_date.getErrors %}error{% endif %}">
+			<label for="title">Date</label>
+			<div class="input">
+				<div class="inline-inputs">
+					{{ form.start_date.render|raw }}
+					<span class="help-inline">{% for error in form.start_date.getErrors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix {% if form.description.getErrors %}error{% endif %}">
+			<label for="description">Description</label>
+			<div class="input">
+				{{ form.description.render|raw }}
+				<span class="help-block">{% for error in form.description.getErrors %}{{ error }}{% endfor %}</span>
+			</div>
+		</div>
+		<div class="clearfix {% if form.mapText.getErrors %}error{% endif %}">
+			<label for="mapText">Map Text</label>
+			<div class="input">
+				{{ form.mapText.render|raw }}
+				<span class="help-inline">{% for error in form.mapText.getErrors %}{{ error }}{% endfor %}</span>
+			</div>
+		</div>
+		<div class="clearfix {% if form.mapLink.getErrors %}error{% endif %}">
+			<label for="mapLink">Map Link</label>
+			<div class="input">
+				{{ form.mapLink.render|raw }}
+				<span class="help-inline">{% for error in form.mapLink.getErrors %}{{ error }}{% endfor %}</span>
+			</div>
+		</div>
+		<div class="clearfix {% if form.published.getErrors %}error{% endif %}">
+			<label for="published">Published</label>
+			<div class="input">
+				<ul class="inputs-list">
+					<li>{{ form.published.render|raw }}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="actions">
+			{{ form.submit.render|raw }}
+		</div>
+	</fieldset>
+</form>
+{% endblock %}
