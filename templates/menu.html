@@ -27,11 +27,16 @@
 </div>
 
 <ul class="tabs">
-	<li class="active"><a href="/">Events</a></li>
-	<li><a href="/events/archive">Events Archive</a></li>
-	<li><a href="/members">Members</a></li>
+	<li class="events"><a href="/">Events</a></li>
+	<li class="events-archive"><a href="/events/archive">Events Archive</a></li>
+	<li class="members"><a href="/members">Members</a></li>
 	{% if user %}
-	<li><a href="/account">Account</a></li>
-	<li><a href="/logout">Logout</a></li>
+	<li class="account"><a href="/account">Account</a></li>
+	<li class="logout"><a href="/logout">Logout</a></li>
 	{% endif %}
 </ul>
+<script>
+    $("." + (document.location.pathname.replace(/\/([a-z]+)[\/]+[0-9]*[\/]?([a-z]+).*/,'$1-$2')
+            .replace(/[\/0-9]/g, '') || "events"))
+        .addClass("active");
+</script>
